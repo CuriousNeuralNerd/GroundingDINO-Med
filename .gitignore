@@ -1,0 +1,19 @@
+# Ignore image files
+*.png
+*.jpg
+*.jpeg
+*.bmp
+*.gif
+*.tiff
+
+# Ignore specific folders
+xray_data/
+xray_data.zip
+pred_images/
+final_val_images/
+allval_images_in_folder/
+test/
+
+# Ignore nested Git repositories
+GroundingDINO/.git
+Open-GroundingDino/.git
