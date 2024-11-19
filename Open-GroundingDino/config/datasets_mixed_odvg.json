@@ -1,0 +1,18 @@
+{
+  "train": [
+    {
+      "root": "/home/km/content/xray_data/xray_data/train",
+      "anno": "/home/km/content/input_params/train.jsonl",
+      "label_map": "/home/km/content/input_params/label.json",
+      "dataset_mode": "odvg"
+    }
+  ],
+  "val": [
+    {
+      "root": "/home/km/content/xray_data/xray_data/test",
+      "anno": "/home/km/content/xray_data/xray_data/test/_annotations.coco.json",
+      "label_map": null,
+      "dataset_mode": "coco"
+    }
+  ]
+}
