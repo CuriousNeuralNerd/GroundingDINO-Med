@@ -1,8 +1,8 @@
 <div align="center">
-  <img src="figs/tiny_med_dino.png" width="50%">
+  <img src="figs/cute_dino.png" width="35%">
 </div>
 
-This is the fourth party implementation of the paper **[Grounding DINO: Marrying DINO with Grounded Pre-Training for Open-Set Object Detection](https://arxiv.org/abs/2303.05499)** by [Zuwei Long]() and [Wei Li](https://github.com/bigballon).
+This is the third party implementation of the paper **[Grounding DINO: Marrying DINO with Grounded Pre-Training for Open-Set Object Detection](https://arxiv.org/abs/2303.05499)** by [Zuwei Long]() and [Wei Li](https://github.com/bigballon).
 
 **You can use this code to fine-tune a model on your own dataset, or start pretraining a model from scratch.**
 
@@ -218,10 +218,10 @@ python tools/inference_on_a_image.py \
   -o output
 ```
 
-| Prompt |          Raw Image        |        Predicted         |        Ground Truth      |
-| :----: | :-----------------------: | :----------------------: | :----------------------: |
-| nodule | ![](./figs/raw_image.jpg) | ![](./figs/pred.jpg)     | ![](./figs/ground_truth.jpg) |
-
+| Prompt |        Official ckpt         |        COCO ckpt         |        1.8M ckpt         |
+| :----: | :--------------------------: | :----------------------: | :----------------------: |
+|  dog   | ![](./figs/dog-official.jpg) | ![](./figs/dog-coco.jpg) | ![](./figs/dog-1.8m.jpg) |
+|  cat   | ![](./figs/cat-official.jpg) | ![](./figs/cat-coco.jpg) | ![](./figs/cat-1.8m.jpg) |
 
 # Acknowledgments
 
@@ -230,16 +230,22 @@ Provided codes were adapted from:
 - [microsoft/GLIP](https://github.com/microsoft/GLIP)
 - [IDEA-Research/DINO](https://github.com/IDEA-Research/DINO/)
 - [IDEA-Research/GroundingDINO](https://github.com/IDEA-Research/GroundingDINO)
-- [Open-GroundingDino](https://github.com/longzw1997/Open-GroundingDino)
 
 
 # Citation
 
 ```
-@misc{Open Grounding Dino Med Tiny,
-  author = {Kyle Musgrove},
-  title = {Open Grounding Dino Med Tiny:The fourth party implementation of the paper Grounding DINO},
-  howpublished = {\url{https://github.com/CuriousNeuralNerd/open_groundingdino_med_tiny}},
-  year = {2024}
+@misc{Open Grounding Dino,
+  author = {Zuwei Long, Wei Li},
+  title = {Open Grounding Dino:The third party implementation of the paper Grounding DINO},
+  howpublished = {\url{https://github.com/longzw1997/Open-GroundingDino}},
+  year = {2023}
 }
 ```
+
+# Contact
+
+- longzuwei at sensetime.com  
+- liwei1 at sensetime.com  
+
+Feel free to contact we if you have any suggestions or questions. Bugs found are also welcome. Please create a pull request if you find any bugs or want to contribute code.
