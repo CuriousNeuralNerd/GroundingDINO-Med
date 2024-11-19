@@ -1,6 +1,8 @@
 <div align="center">
-  <img src="figs/tiny_med_dino.png" width="50%">
+  <img src="figs/tiny_med_dino.png" width="100%">
 </div>
+
+
 
 This is a specialized implementation of the paper **[Grounding DINO: Marrying DINO with Grounded Pre-Training for Open-Set Object Detection](https://arxiv.org/abs/2303.05499)** by [Zuwei Long]() and [Wei Li](https://github.com/bigballon).
 
@@ -13,18 +15,31 @@ If you need additional details or clarification, visit the [Open-GroundingDino r
 The dataset includes 14 classes of abnormalities:
 
 0: aortic enlargement
+
 1: atelectasis
+
 2: calcification
+
 3: cardiomegaly
+
 4: consolidation
+
 5: ild (interstitial lung disease)
+
 6: infiltration
+
 7: lung opacity
+
 8: nodule mass
+
 9: pleural effusion
+
 10: pleural thickening
+
 11: pneumothorax
+
 12: pulmonary fibrosis
+
 13: other lesion
 
 # Features
@@ -45,69 +60,69 @@ I used Python 3.10.12, PyTorch 2.5.1+cu121, and CUDA 12.2, but other compatible 
 
 **1. Clone the repositories.**
 
-    - Clone the Open-GroundingDino repository:
+- Clone the Open-GroundingDino repository:
 
-        ```bash
-        git clone https://github.com/longzw1997/Open-GroundingDino.git && cd Open-GroundingDino/
-        ```
+    ```bash
+    git clone https://github.com/longzw1997/Open-GroundingDino.git && cd Open-GroundingDino/
+    ```
 
-    - Clone the GroundingDINO repository
+- Clone the GroundingDINO repository
 
-        ```bash
-        git clone https://github.com/IDEA-Research/GroundingDINO.git
-        ```
+    ```bash
+    git clone https://github.com/IDEA-Research/GroundingDINO.git
+    ```
 
 **2. Install the required dependencies.**
 
-    - Open-GroundingDino:
+- Open-GroundingDino:
 
-        ```bash
-        pip install -r requirements.txt 
-        cd models/GroundingDINO/ops
-        python setup.py build install
-        python test.py
-        cd ../../..
-        ```
+    ```bash
+    pip install -r requirements.txt 
+    cd models/GroundingDINO/ops
+    python setup.py build install
+    python test.py
+    cd ../../..
+    ```
 
-    - GroundingDINO:
+- GroundingDINO:
 
-        ```bash
-        cd GroundingDINO
-        pip install ninja
-        pip install -e . --no-build-isolation --verbose
-        cd ..
-        ```
+    ```bash
+    cd GroundingDINO
+    pip install ninja
+    pip install -e . --no-build-isolation --verbose
+    cd ..
+    ```
 
 **3. Jupyter Notebook for Training:**
 
-    - Use the `tiny_model.ipynb` file to set up and train on your own dataset. This notebook provides detailed steps for:
+- Use the `tiny_model.ipynb` file to set up and train on your own dataset. This notebook provides detailed steps for:
 
-        - Preparing the dataset
-        - Configuring files for training and inference
-        - Running training and generating predictions
+    - Preparing the dataset
+    - Configuring files for training and inference
+    - Running training and generating predictions
 
-    - To open the notebook:
+- To open the notebook:
 
-        ```bash
-        jupyter notebook tiny_model.ipynb
-        ```
+    ```bash
+    jupyter notebook tiny_model.ipynb
+    ```
 
 **4. Download required models:**
 
-    - Pre-trained model checkpoint:
+- Pre-trained model checkpoint:
 
-        ```bash
-        wget https://github.com/IDEA-Research/GroundingDINO/releases/download/v0.1.0-alpha/groundingdino_swint_ogc.pth
-        ```
+    ```bash
+    wget https://github.com/IDEA-Research/GroundingDINO/releases/download/v0.1.0-alpha/groundingdino_swint_ogc.pth
+    ```
 
-    - Pre-trained BERT model: Run the provided code in `tiny_model.ipynb` to download and save the BERT tokenizer and model locally.
+- Pre-trained BERT model: Run the provided code in `tiny_model.ipynb` to download and save the BERT tokenizer and model locally.
 
 **5. Verify environment:** Ensure the installation was successful by checking Python and PyTorch versions:
 
-    ```bash
-    python3 --version
-    python -c "import torch; print('PyTorch version:', torch.__version__); print('CUDA available:', torch.cuda.is_available())"
-    ```
+```bash
+python3 --version
+python -c "import torch; print('PyTorch version:', torch.__version__); print('CUDA available:', torch.cuda.is_available())"
+```
 
 # Dataset
 
@@ -117,8 +132,8 @@ The dataset is filtered down to ~5,000 images in COCO format for validation and 
 
 #### Class Mappings:
 
-    ```json
-    {
+```json
+{
     "0": "aortic enlargement",
     "1": "atelectasis",
     "2": "calcification",
@@ -133,8 +148,8 @@ The dataset is filtered down to ~5,000 images in COCO format for validation and 
     "11": "pneumothorax",
     "12": "pulmonary fibrosis",
     "13": "other lesion"
-    }
-    ```
+}
+```
 
 **Dataset Preparation Steps:**
 
@@ -147,30 +162,30 @@ The dataset is filtered down to ~5,000 images in COCO format for validation and 
 
 Updated configurations:
 
-    - `cfg_odvg.py`: Handles model-specific parameters like backbone, batch size, and learning rate.
-    - `datasets_mixed_odvg.json`: Specifies paths for training and validation data.
+- `cfg_odvg.py`: Handles model-specific parameters like backbone, batch size, and learning rate.
+- `datasets_mixed_odvg.json`: Specifies paths for training and validation data.
 
 Label mappings are embedded directly:
 
-    ```python
-    label_list = [
-        "aortic enlargement", "atelectasis", "calcification", "cardiomegaly",
-        "consolidation", "ild", "infiltration", "lung opacity", "nodule mass",
-        "pleural effusion", "pleural thickening", "pneumothorax", "pulmonary fibrosis", "other lesion"
-    ]
-    ```
+```python
+label_list = [
+    "aortic enlargement", "atelectasis", "calcification", "cardiomegaly",
+    "consolidation", "ild", "infiltration", "lung opacity", "nodule mass",
+    "pleural effusion", "pleural thickening", "pneumothorax", "pulmonary fibrosis", "other lesion"
+]
+```
 
 # Training
 
 Modify `train_dist.sh` for single GPU training. Example:
 
-    ```bash
-    CFG="~/content/Open-GroundingDino/config/cfg_odvg.py"
-    DATASETS="~/content/Open-GroundingDino/config/datasets_mixed_odvg.json"
-    OUTPUT_DIR="~/content/output_tiny"
+```bash
+CFG="~/content/Open-GroundingDino/config/cfg_odvg.py"
+DATASETS="~/content/Open-GroundingDino/config/datasets_mixed_odvg.json"
+OUTPUT_DIR="~/content/output_tiny"
 
-    bash train_dist.sh $CFG $DATASETS $OUTPUT_DIR
-    ```
+bash train_dist.sh $CFG $DATASETS $OUTPUT_DIR
+```
 
 # Inference
 
@@ -178,14 +193,14 @@ Run inference on the validation set or individual images with text prompts repre
 
 Example for a single image:
 
-    ```bash
-    python tools/inference_on_a_image.py \
-        -c tools/GroundingDINO_SwinT_OGC.py \
-        -p ~/content/output_tiny/checkpointX.pth \
-        -i ~/content/xray_data/xray_data/valid/sample.jpg \
-        -t "nodule . pleural effusion . pneumothorax" \
-        -o ~/content/inference_output
-    ```
+```bash
+python tools/inference_on_a_image.py \
+    -c tools/GroundingDINO_SwinT_OGC.py \
+    -p ~/content/output_tiny/checkpointX.pth \
+    -i ~/content/xray_data/xray_data/valid/sample.jpg \
+    -t "nodule . pleural effusion . pneumothorax" \
+    -o ~/content/inference_output
+```
 
 # Results
 

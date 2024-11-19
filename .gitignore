@@ -1,7 +1,4 @@
 # Ignore image files
-*.png
-*.jpg
-*.jpeg
 *.bmp
 *.gif
 *.tiff
@@ -15,5 +12,4 @@ allval_images_in_folder/
 test/
 
 # Ignore nested Git repositories
-GroundingDINO/.git
 Open-GroundingDino/.git
