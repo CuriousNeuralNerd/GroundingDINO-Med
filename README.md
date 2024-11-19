@@ -4,7 +4,7 @@
 
 
 
-This is a specialized implementation of the paper **[Grounding DINO: Marrying DINO with Grounded Pre-Training for Open-Set Object Detection](https://arxiv.org/abs/2303.05499)** by [Zuwei Long]() and [Wei Li](https://github.com/bigballon).
+### This is a specialized implementation of the paper **[Grounding DINO: Marrying DINO with Grounded Pre-Training for Open-Set Object Detection](https://arxiv.org/abs/2303.05499)** by [Zuwei Long]() and [Wei Li](https://github.com/bigballon).
 
 This project fine-tunes GroundingDINO using Open-GroundingDino on a filtered version of the VinBigData Chest X-ray dataset, which contains approximately 5,000 images and 14 distinct medical imaging classes. The implementation includes tailored modifications for processing COCO and odvg data formats in the context of medical imaging.
 
@@ -225,8 +225,8 @@ Provided codes were adapted from:
 ```
 @misc{Open_GroundingDino_Medical,
   author = {Kyle Musgrove},
-  title = {Open GroundingDino for Medical Imaging},
-  howpublished = {\url{https://github.com/CuriousNeuralNerd/open_groundingdino_med_tiny}},
+  title = {Open Grounding DINO for Medical Imaging},
+  howpublished = {\url{https://github.com/CuriousNeuralNerd/GroundingDINO-Med}},
   year = {2024}
 }
 ```
