@@ -77,10 +77,10 @@ I used Python 3.10.12, PyTorch 2.5.1+cu121, and CUDA 12.2, but other compatible 
 
 **1. Clone the repositories.**
 
-- Clone the Open-GroundingDino repository:
+- Clone the Open-GroundingDino repository and rename it:
 
     ```bash
-    git clone https://github.com/longzw1997/Open-GroundingDino.git && cd Open-GroundingDino/
+    git clone https://github.com/longzw1997/Open-GroundingDino.git && mv Open-GroundingDino OpenGroundingDino
     ```
 
 - Clone the GroundingDINO repository
@@ -197,9 +197,9 @@ label_list = [
 Modify `train_dist.sh` for single GPU training. Example:
 
 ```bash
-CFG="~/content/Open-GroundingDino/config/cfg_odvg.py"
-DATASETS="~/content/Open-GroundingDino/config/datasets_mixed_odvg.json"
-OUTPUT_DIR="~/content/output_tiny"
+CFG="~/GroundingDINO-Med/OpenGroundingDino/config/cfg_odvg.py"
+DATASETS="~/GroundingDINO-Med/OpenGroundingDino/config/datasets_mixed_odvg.json"
+OUTPUT_DIR="~/GroundingDINO-Med/output_tiny"
 
 bash train_dist.sh $CFG $DATASETS $OUTPUT_DIR
 ```
@@ -213,10 +213,10 @@ Example for a single image:
 ```bash
 python tools/inference_on_a_image.py \
     -c tools/GroundingDINO_SwinT_OGC.py \
-    -p ~/content/output_tiny/checkpointX.pth \
-    -i ~/content/xray_data/xray_data/valid/sample.jpg \
+    -p ~/GroundingDINO-Med/output_tiny/checkpointX.pth \
+    -i ~/GroundingDINO-Med/xray_data/xray_data/valid/sample.jpg \
     -t "nodule . pleural effusion . pneumothorax" \
-    -o ~/content/inference_output
+    -o ~/GroundingDINO-Med/inference_output
 ```
 
 ## Results
