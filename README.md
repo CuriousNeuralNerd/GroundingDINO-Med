@@ -15,14 +15,57 @@ If you need additional details or clarification, visit the [Open-GroundingDino r
 
 This repository is divided into two main parts:
 
-1. [**Training and Dataset Integration**](#1-training-and-dataset-integration)
-    
-   - A comprehensive guide to preparing the dataset, training the model, and running inference.
 
-2. [**Plug-and-Play Testing**](#2-plug-and-play-testing)  
+1. [**Plug-and-Play Testing**](#1-plug-and-play-testing)  
 
    - A lightweight Jupyter notebook for quickly testing pre-trained models with your own images.
 
+2. [**Training and Dataset Integration**](#2-training-and-dataset-integration)
+    
+   - A comprehensive guide to preparing the dataset, training the model, and running inference.
+
+
+
+---
+# 1. Plug-and-Play Testing
+
+This part of the repository focuses on the `Test.ipynb` file, designed to make it easy for users to test the pre-trained GroundingDINO model on their own images and pipelines.
+
+- **What is it?**
+
+  `Test.ipynb` provides a streamlined approach to test the model with minimal setup. Users can simply load their images and input text prompts to run predictions.
+
+- **How does it work?**
+
+  The notebook walks you through the following steps:
+   
+   - Loading a pre-trained checkpoint
+   - Configuring input thresholds for bounding box and text
+   - Running predictions on custom images with specific prompts
+   - Visualizing and saving results
+
+- **Key Features:**
+   
+   - Adjustable thresholds (`box_threshold`, `text_threshold`, `iou_threshold`)
+   - Compatibility with various input image formats
+   - Easy-to-use interface for testing pre-trained models
+
+- **Usage:**
+
+  To test the model on your images:
+   
+   1. Open the `Test.ipynb` file:
+      ```bash
+      jupyter notebook Test.ipynb
+      ```
+   2. Follow the steps outlined in the notebook.
+   3. Adjust thresholds and prompts to suit your use case.
+
+This section is perfect for quickly evaluating GroundingDINO’s capabilities without needing to modify extensive code or configurations.
+
+
+---
+# 2. Training and Dataset Integration
 
 ## Dataset Overview
 
@@ -56,8 +99,6 @@ The dataset includes 14 classes of abnormalities:
 
 13: other lesion
 
----
-# 1. Training and Dataset Integration
 
 ## Features
 
@@ -222,48 +263,28 @@ python tools/inference_on_a_image.py \
 ## Results
 
 
-| Prompt |          Raw Image        |        Predicted         |        Ground Truth      |
-| :----: | :-----------------------: | :----------------------: | :----------------------: |
-| nodule | ![](./figs/raw_image.jpg) | ![](./figs/pred.jpg)     | ![](./figs/ground_truth.jpg) |
+|       Prompt       |          Raw Image        |        Predicted         |        Ground Truth      |
+| :----------------: | :-----------------------: | :----------------------: | :----------------------: |
+| nodule             | ![](./figs/8raw.jpg)      | ![](./figs/8pred.jpg)     | ![](./figs/8gt.jpg)      |
 
 
 
----
-# 2. Plug-and-Play Testing
+<!-- | aortic enlargement | ![](./figs/0raw.jpg)      | ![](./figs/0pred.jpg)    | ![](./figs/0gt.jpg)      |
+| atelectasis        | ![](./figs/1raw.jpg)      | ![](./figs/1pred.jpg)    | ![](./figs/1gt.jpg)      |
+| nodule             | ![](./figs/2raw.jpg)      | ![](./figs/2pred.jpg)     | ![](./figs/2gt.jpg)      |
+| nodule             | ![](./figs/3raw.jpg)      | ![](./figs/3pred.jpg)     | ![](./figs/3gt..jpg)     |
+| nodule             | ![](./figs/4raw.jpg)      | ![](./figs/4pred.jpg)     | ![](./figs/4gt..jpg)     |
+| nodule             | ![](./figs/5raw.jpg)      | ![](./figs/5pred.jpg)     | ![](./figs/5gt..jpg)     |
+| nodule             | ![](./figs/6raw.jpg)      | ![](./figs/6pred.jpg)     | ![](./figs/6gt.jpg)      |
+| nodule             | ![](./figs/7raw.jpg)      | ![](./figs/7pred.jpg)     | ![](./figs/7gt.jpg)      |
+| nodule             | ![](./figs/8raw.jpg)      | ![](./figs/8pred.jpg)     | ![](./figs/8gt.jpg)      |
+| nodule             | ![](./figs/9raw.jpg)      | ![](./figs/9pred.jpg)     | ![](./figs/9gt.jpg)      |
+| nodule             | ![](./figs/10raw.jpg)      | ![](./figs/10pred.jpg)     | ![](./figs/10gt.jpg)      |
+| nodule             | ![](./figs/11raw.jpg)      | ![](./figs/11pred.jpg)     | ![](./figs/11gt.jpg)      |
+| nodule             | ![](./figs/12raw.jpg)      | ![](./figs/12pred.jpg)     | ![](./figs/12gt.jpg)      |
+| nodule             | ![](./figs/13raw.jpg)      | ![](./figs/13pred.jpg)     | ![](./figs/13gt.jpg)      | -->
 
-This part of the repository focuses on the `Test.ipynb` file, designed to make it easy for users to test the pre-trained GroundingDINO model on their own images and pipelines.
 
-- **What is it?**
-
-  `Test.ipynb` provides a streamlined approach to test the model with minimal setup. Users can simply load their images and input text prompts to run predictions.
-
-- **How does it work?**
-
-  The notebook walks you through the following steps:
-   
-   - Loading a pre-trained checkpoint
-   - Configuring input thresholds for bounding box and text
-   - Running predictions on custom images with specific prompts
-   - Visualizing and saving results
-
-- **Key Features:**
-   
-   - Adjustable thresholds (`box_threshold`, `text_threshold`, `iou_threshold`)
-   - Compatibility with various input image formats
-   - Easy-to-use interface for testing pre-trained models
-
-- **Usage:**
-
-  To test the model on your images:
-   
-   1. Open the `Test.ipynb` file:
-      ```bash
-      jupyter notebook Test.ipynb
-      ```
-   2. Follow the steps outlined in the notebook.
-   3. Adjust thresholds and prompts to suit your use case.
-
-This section is perfect for quickly evaluating GroundingDINO’s capabilities without needing to modify extensive code or configurations.
 
 
 
