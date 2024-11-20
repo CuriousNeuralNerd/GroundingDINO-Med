@@ -1,3 +1,13 @@
+import sys
+import os
+
+# Get the absolute path of the project's root directory
+project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+# Add the path
+sys.path.append(os.path.join(project_root, "OpenGroundingDino"))
+
+
 import torch
 from PIL import Image, ImageDraw, ImageFont
 from OpenGroundingDino.tools.inference_on_a_image import load_model, get_grounding_output, load_image

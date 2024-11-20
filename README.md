@@ -10,7 +10,21 @@ This project fine-tunes GroundingDINO using Open-GroundingDino on a filtered ver
 
 If you need additional details or clarification, visit the [Open-GroundingDino repository](https://github.com/longzw1997/Open-GroundingDino).
 
-# Dataset Overview
+
+# Repository Structure
+
+This repository is divided into two main parts:
+
+1. [**Training and Dataset Integration**](#1-training-and-dataset-integration)
+    
+   - A comprehensive guide to preparing the dataset, training the model, and running inference.
+
+2. [**Plug-and-Play Testing**](#2-plug-and-play-testing)  
+
+   - A lightweight Jupyter notebook for quickly testing pre-trained models with your own images.
+
+
+## Dataset Overview
 
 The dataset includes 14 classes of abnormalities:
 
@@ -42,7 +56,10 @@ The dataset includes 14 classes of abnormalities:
 
 13: other lesion
 
-# Features
+---
+# 1. Training and Dataset Integration
+
+## Features
 
 |                                   | Official release version | The version we replicated |
 | --------------------------------- | :----------------------: | :-----------------------: |
@@ -54,7 +71,7 @@ The dataset includes 14 classes of abnormalities:
 
 
 
-# Setup
+## Setup
 
 I used Python 3.10.12, PyTorch 2.5.1+cu121, and CUDA 12.2, but other compatible versions may work.
 
@@ -124,7 +141,7 @@ python3 --version
 python -c "import torch; print('PyTorch version:', torch.__version__); print('CUDA available:', torch.cuda.is_available())"
 ```
 
-# Dataset
+## Dataset
 
 ### VinBigData Chest X-ray Dataset 
 
@@ -158,7 +175,7 @@ The dataset is filtered down to ~5,000 images in COCO format for validation and 
 3. Keep validation data in COCO format.
 
 
-# Config
+## Config
 
 Updated configurations:
 
@@ -175,7 +192,7 @@ label_list = [
 ]
 ```
 
-# Training
+## Training
 
 Modify `train_dist.sh` for single GPU training. Example:
 
@@ -187,7 +204,7 @@ OUTPUT_DIR="~/content/output_tiny"
 bash train_dist.sh $CFG $DATASETS $OUTPUT_DIR
 ```
 
-# Inference
+## Inference
 
 Run inference on the validation set or individual images with text prompts representing the classes. Modified `inference_on_a_image.py` saves predictions in both image and JSON formats.
 
@@ -202,7 +219,7 @@ python tools/inference_on_a_image.py \
     -o ~/content/inference_output
 ```
 
-# Results
+## Results
 
 
 | Prompt |          Raw Image        |        Predicted         |        Ground Truth      |
@@ -210,7 +227,48 @@ python tools/inference_on_a_image.py \
 | nodule | ![](./figs/raw_image.jpg) | ![](./figs/pred.jpg)     | ![](./figs/ground_truth.jpg) |
 
 
-# Acknowledgments
+
+---
+# 2. Plug-and-Play Testing
+
+This part of the repository focuses on the `Test.ipynb` file, designed to make it easy for users to test the pre-trained GroundingDINO model on their own images and pipelines.
+
+- **What is it?**
+
+  `Test.ipynb` provides a streamlined approach to test the model with minimal setup. Users can simply load their images and input text prompts to run predictions.
+
+- **How does it work?**
+
+  The notebook walks you through the following steps:
+   
+   - Loading a pre-trained checkpoint
+   - Configuring input thresholds for bounding box and text
+   - Running predictions on custom images with specific prompts
+   - Visualizing and saving results
+
+- **Key Features:**
+   
+   - Adjustable thresholds (`box_threshold`, `text_threshold`, `iou_threshold`)
+   - Compatibility with various input image formats
+   - Easy-to-use interface for testing pre-trained models
+
+- **Usage:**
+
+  To test the model on your images:
+   
+   1. Open the `Test.ipynb` file:
+      ```bash
+      jupyter notebook Test.ipynb
+      ```
+   2. Follow the steps outlined in the notebook.
+   3. Adjust thresholds and prompts to suit your use case.
+
+This section is perfect for quickly evaluating GroundingDINO’s capabilities without needing to modify extensive code or configurations.
+
+
+
+---
+## Acknowledgments
 
 Provided codes were adapted from:
 
@@ -220,7 +278,7 @@ Provided codes were adapted from:
 - [Open-GroundingDino](https://github.com/longzw1997/Open-GroundingDino)
 
 
-# Citation
+## Citation
 
 ```
 @misc{Open_GroundingDino_Medical,
@@ -230,3 +288,4 @@ Provided codes were adapted from:
   year = {2024}
 }
 ```
+
