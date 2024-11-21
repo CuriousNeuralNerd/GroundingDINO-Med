@@ -29,7 +29,6 @@ fonttools==4.55.0
 fqdn==1.5.1
 fsspec==2024.2.0
 gdown==5.2.0
--e git+ssh://git@github.com/CuriousNeuralNerd/GroundingDINO-Med.git@5735ba9204985d6cd5cef29a2bee20891a5ea21c#egg=groundingdino&subdirectory=GroundingDINO
 h11==0.14.0
 httpcore==1.0.7
 httpx==0.27.2

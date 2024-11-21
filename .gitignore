@@ -10,3 +10,4 @@ pred_images/
 final_val_images/
 allval_images_in_folder/
 test/
+GroundingDINO/
